@@ -94,16 +94,20 @@ $(function() {
     // Done!
     /* TODO: Write a new test suite named "Initial Entries" */
     describe('Initial Entries', function() {
-        var testFeeds;
+
+        var feed0,
+            feed1,
+            i = 0;
 
         beforeEach(function(done) {
-            loadFeed(0);
 
-            // console.log("before done");
-            // console.log($('article.entry'));
+            // console.log("Calling before function!");            
 
-            done();
-            
+            loadFeed(i, function(){
+                i++;
+                done();
+            });
+
         });
 
         /* TODO: Write a test that ensures when the loadFeed
@@ -115,10 +119,11 @@ $(function() {
 
         it('has run and has feeds', function(done) {
 
-            console.log("Calling test function!");
-            expect($('feed.article.entry')).toBeDefined();
-            // expect($('feed.article.entry').length).not.toBe(0);
-            console.log($('feed.article.entry'));
+            feed0 = $('.feed.article.entry');       
+            
+            // console.log("Calling test function!");
+
+            expect(feed0).toBeDefined();
 
             done();
         });
@@ -131,7 +136,12 @@ $(function() {
          */
 
         it('has changed with new feed', function(done) {
-            expect();
+
+            feed1 = $('.feed.article.entry');       
+            // console.log(feed0);
+            // console.log(feed1);
+            
+            expect(feed0).not.toBe(feed1);
             done();
         });
     });
