@@ -93,34 +93,46 @@ $(function() {
     
     // Done!
     /* TODO: Write a new test suite named "Initial Entries" */
-    // describe('Initial Entries', function() {
-    //     var testFeeds;
+    describe('Initial Entries', function() {
+        var testFeeds;
 
-    //     beforeEach(function() {
-    //         testFeeds = new loadFeed(0);
-    //         done();
-    //     });
+        beforeEach(function(done) {
+            loadFeed(0);
 
-    //     /* TODO: Write a test that ensures when the loadFeed
-    //      * function is called and completes its work, there is at least
-    //      * a single .entry element within the .feed container.
-    //      * Remember, loadFeed() is asynchronous so this test will require
-    //      * the use of Jasmine's beforeEach and asynchronous done() function.
-    //      */
-    //     it('has run and has feeds', function(done) {
+            // console.log("before done");
+            // console.log($('article.entry'));
+
+            done();
             
-    //         expect(feed[0].entry).toBeDefined();
-    //     });
+        });
 
-    // /* TODO: Write a new test suite named "New Feed Selection" */
+        /* TODO: Write a test that ensures when the loadFeed
+         * function is called and completes its work, there is at least
+         * a single .entry element within the .feed container.
+         * Remember, loadFeed() is asynchronous so this test will require
+         * the use of Jasmine's beforeEach and asynchronous done() function.
+         */
 
-    //     /* TODO: Write a test that ensures when a new feed is loaded
-    //      * by the loadFeed function that the content actually changes.
-    //      * Remember, loadFeed() is asynchronous.
-    //      */
+        it('has run and has feeds', function(done) {
 
-    //     it('has changed with new feed', function() {
-            
-    //     });
-    // });
+            console.log("Calling test function!");
+            expect($('feed.article.entry')).toBeDefined();
+            // expect($('feed.article.entry').length).not.toBe(0);
+            console.log($('feed.article.entry'));
+
+            done();
+        });
+
+    /* TODO: Write a new test suite named "New Feed Selection" */
+
+        /* TODO: Write a test that ensures when a new feed is loaded
+         * by the loadFeed function that the content actually changes.
+         * Remember, loadFeed() is asynchronous.
+         */
+
+        it('has changed with new feed', function(done) {
+            expect();
+            done();
+        });
+    });
 }());
