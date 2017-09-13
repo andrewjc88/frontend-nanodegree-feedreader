@@ -52,33 +52,34 @@ $(function() {
             });
         });
 
-        it('has run and has feeds', function(done) {
+        it('has run and has feeds', function() {
 
-            var feed0 = $('.feed').html();        
-            // console.log(feed0);
+            var feed0 = $('.feed .entry').html();        
+            console.log(feed0);
             
             expect(feed0).toBeDefined();
-            expect(feed0.lenth).not.toBe(0);
-            done();
+            expect(feed0.length).not.toBe(0);
         });
     });
 
     describe('New Feed Selection', function() {
-
+        var feed_0,
+            feed_1;
+            
         beforeEach(function(done) {          
                 
             loadFeed(0, function(){
-                feed_0 = $('.feed').html();
+                feed_0 = $('.feed .entry').html();
                 loadFeed(1, done);
             });
         });
 
         it('has changed with new feed', function(done) {
 
-            var feed_1 = $('.feed').html();
+            feed_1 = $('.feed .entry').html();
             
-            expect(feed_0.lenth).not.toBe(0);
-            expect(feed_1.lenth).not.toBe(0);
+            expect(feed_0.length).not.toBe(0);
+            expect(feed_1.length).not.toBe(0);
             
             expect(feed_0).not.toBe(feed_1);
             done();
