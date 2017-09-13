@@ -74,7 +74,7 @@ $(function() {
             });
         });
 
-        it('has changed with new feed', function(done) {
+        it('has changed with new feed', function() {
 
             feed_1 = $('.feed .entry').html();
             
@@ -82,7 +82,6 @@ $(function() {
             expect(feed_1.length).not.toBe(0);
             
             expect(feed_0).not.toBe(feed_1);
-            done();
         });
     });
 }());
