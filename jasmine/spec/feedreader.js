@@ -10,18 +10,18 @@ $(function() {
 
         it('have urls', function() {
 
-            for(var i = 0; i < allFeeds.length; i++) {
-                expect(allFeeds[i].url).toBeDefined();
-                expect(allFeeds[i].url.length).not.toBe(0);
-            }
+            allFeeds.forEach(function(feed) {
+                expect(feed.url).toBeDefined();
+                expect(feed.url.length).not.toBe(0);
+            });
         });
 
         it('have names', function() {
 
-            for(var i = 0; i < allFeeds.length; i++) {
-                expect(allFeeds[i].name).toBeDefined();
-                expect(allFeeds[i].name.length).not.toBe(0);
-            }
+            allFeeds.forEach(function(feed){
+                expect(feed.name).toBeDefined();
+                expect(feed.name.length).not.toBe(0);
+            });
         });        
     });
 
@@ -45,33 +45,42 @@ $(function() {
 
     describe('Initial Entries', function() {
 
-        var feed0,
-            feed1,
-            i = 0; // instanciates the feed#
-
-        beforeEach(function(done) {          
-
-            loadFeed(i, function(){
-                i++;
+        beforeEach(function(done) {
+            
+            loadFeed(0, function(){
                 done();
             });
-
         });
 
         it('has run and has feeds', function(done) {
 
-            feed0 = $('.feed.article.entry');       
+            var feed0 = $('.feed').html();        
+            // console.log(feed0);
             
             expect(feed0).toBeDefined();
-
+            expect(feed0.lenth).not.toBe(0);
             done();
+        });
+    });
+
+    describe('New Feed Selection', function() {
+
+        beforeEach(function(done) {          
+                
+            loadFeed(0, function(){
+                feed_0 = $('.feed').html();
+                loadFeed(1, done);
+            });
         });
 
         it('has changed with new feed', function(done) {
 
-            feed1 = $('.feed.article.entry');       
+            var feed_1 = $('.feed').html();
             
-            expect(feed0).not.toBe(feed1);
+            expect(feed_0.lenth).not.toBe(0);
+            expect(feed_1.lenth).not.toBe(0);
+            
+            expect(feed_0).not.toBe(feed_1);
             done();
         });
     });
