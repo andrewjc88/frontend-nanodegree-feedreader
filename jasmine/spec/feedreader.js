@@ -55,7 +55,6 @@ $(function() {
         it('has run and has feeds', function() {
 
             var feed0 = $('.feed .entry').html();        
-            console.log(feed0);
             
             expect(feed0).toBeDefined();
             expect(feed0.length).not.toBe(0);
